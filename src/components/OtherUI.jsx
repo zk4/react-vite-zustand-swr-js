@@ -1,6 +1,6 @@
 
-import useGlobalStore from "./useGlobal";
-function OtherUI(){
+import useGlobalStore from "../useGlobal";
+export default function OtherUI(){
   const { keyword} = useGlobalStore();
 
 	// render data

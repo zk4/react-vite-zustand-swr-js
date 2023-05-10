@@ -1,14 +1,15 @@
 import "./App.css";
 import useArrayStore from "./store";
 import Btn from "./components/btn";
-import Profile from "./Profile";
-import OtherUI from "./OtherUI";
+import Profile from "./components/Profile";
+import OtherUI from "./components/OtherUI";
 
 function App() {
   const { arr, updateArr, updateValue } = useArrayStore();
 
   return (
     <div>
+      hello
       <OtherUI />
       <Profile />
       <button onClick={() => updateArr([1, 2, 3])}>Update Array</button>

@@ -1,5 +1,5 @@
-import useGlobalStore from "./useGlobal";
-import useProfile from './useProfile'
+import useGlobalStore from "../useGlobal";
+import useProfile from '../useProfile'
 
 export default function Profile() {
   const { keyword, update } = useGlobalStore();
