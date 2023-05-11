@@ -9,7 +9,6 @@ function App() {
 
   return (
     <div>
-      hello
       <OtherUI />
       <Profile />
       <button onClick={() => updateArr([1, 2, 3])}>Update Array</button>
