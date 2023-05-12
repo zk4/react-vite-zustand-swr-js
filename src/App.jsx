@@ -7,6 +7,7 @@ import OtherUI from "./components/OtherUI";
 function App() {
   const { arr, updateArr, updateValue } = useArrayStore();
 
+
   return (
     <div>
       <OtherUI />
