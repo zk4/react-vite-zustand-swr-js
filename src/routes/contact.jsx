@@ -90,15 +90,15 @@ function Favorite({ contact }) {
 
   return (
     <fetcher.Form method="post">
-    <Form method="post">
-      <button
-        name="favorite"
-        value={favorite ? "false" : "true"}
-        aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
-      >
-        {favorite ? "★" : "☆"}
-      </button>
-    </Form>
+			<Form method="post">
+				<button
+					name="favorite"
+					value={favorite ? "false" : "true"}
+					aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
+				>
+					{favorite ? "★" : "☆"}
+				</button>
+			</Form>
     </fetcher.Form>
   );
 }

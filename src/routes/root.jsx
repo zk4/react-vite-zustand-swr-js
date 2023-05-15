@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
-import { Outlet,NavLink, Link, useLoaderData, Form ,redirect,useNavigation,useSubmit} from "react-router-dom";
+import {
+  Outlet,
+  NavLink,
+  Link,
+  useLoaderData,
+  Form,
+  redirect,
+  useNavigation,
+  useSubmit,
+} from "react-router-dom";
 import { getContacts, createContact } from "../contacts";
-
 
 export async function action() {
   const contact = await createContact();
@@ -16,18 +24,16 @@ export async function loader({ request }) {
 }
 
 export default function Root() {
-
-const { contacts, q } = useLoaderData();
+  const { contacts, q } = useLoaderData();
   const [query, setQuery] = useState(q);
   const navigation = useNavigation();
-	const submit = useSubmit();
+  const submit = useSubmit();
 
-  const searching = navigation.location &&
-    new URLSearchParams(navigation.location.search).has(
-      "q"
-    );
+  const searching =
+    navigation.location &&
+    new URLSearchParams(navigation.location.search).has("q");
 
-	useEffect(() => {
+  useEffect(() => {
     setQuery(q);
   }, [q]);
 
@@ -44,8 +50,8 @@ const { contacts, q } = useLoaderData();
               placeholder="Search"
               type="search"
               name="q"
-						  value={query}
-						  onChange={(event) => {
+              value={query}
+              onChange={(event) => {
                 const isFirstSearch = q == null;
                 submit(event.currentTarget.form, {
                   replace: !isFirstSearch,
@@ -64,16 +70,10 @@ const { contacts, q } = useLoaderData();
             <ul>
               {contacts.map((contact) => (
                 <li key={contact.id}>
-								<NavLink
+                  <NavLink
                     to={`contacts/${contact.id}`}
-                    className={({ isActive, isPending }) =>
-                      isActive
-                        ? "active"
-                        : isPending
-                        ? "pending"
-                        : ""
-                    }
-                  >
+                    className={({ isActive, isPending }) => isActive ? "active" : isPending ? "pending" : "" }
+									>
                     {contact.first || contact.last ? (
                       <>
                         {contact.first} {contact.last}
@@ -93,11 +93,10 @@ const { contacts, q } = useLoaderData();
           )}
         </nav>
       </div>
-			<div id="detail"
-			  className={
-          navigation.state === "loading" ? "loading" : ""
-        }
-			>
+      <div
+        id="detail"
+        className={navigation.state === "loading" ? "loading" : ""}
+      >
         <Outlet />
       </div>
     </>
